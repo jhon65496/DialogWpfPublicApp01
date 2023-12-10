@@ -1,0 +1,31 @@
+﻿<Window x:Class="DialogWpfPublicApp01.Views.StudentDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DialogWpfPublicApp01.Views"
+        mc:Ignorable="d"
+        Title="StudentDialog" Height="110" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="FirstNmae" />
+        <TextBlock Text="LastName" Grid.Row="1" />
+
+        <TextBox Text="{Binding FirstName}" Grid.Column="1" Grid.Row="0" />
+        <TextBox Text="{Binding LastName}"  Grid.Column="1" Grid.Row="1" />
+        
+        <UniformGrid Grid.Row="2" Grid.Column="1" >
+            <Button IsDefault="True" Click="Button_Click" >OK</Button>
+            <Button IsCancel="True" >Отмена</Button>
+        </UniformGrid>
+        
+    </Grid>
+</Window>

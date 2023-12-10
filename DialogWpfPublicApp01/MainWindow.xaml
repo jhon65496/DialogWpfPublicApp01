@@ -1,0 +1,37 @@
+﻿<Window x:Class="DialogWpfPublicApp01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DialogWpfPublicApp01"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="300" 
+        Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0"                                         
+                    ItemsSource="{Binding Students}"
+                    SelectedItem="{Binding SelectedStudent}"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="True"
+                    GridLinesVisibility="Vertical"                                  
+                    VerticalGridLinesBrush="DarkGray"
+                    AlternatingRowBackground="LightGray"
+                     >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id"  Binding="{Binding Id}" Width="Auto"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="*"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding LastName}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <UniformGrid Grid.Row="1">
+            <Button Content="Edit" Command="{Binding EditCommand}"
+                    CommandParameter="{Binding SelectedStudent}"/>
+        </UniformGrid>
+    </Grid>
+</Window>
